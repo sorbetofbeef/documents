@@ -1,0 +1,74 @@
+@document.meta
+  title: expressions
+  description: notes on expressions and rust as an expression language
+  author: me
+  categories: rust 
+  created: 2021-10-26
+  version: 0.1
+@end
+
+___
+* EXPRESSIONS
+
+___
+ ** General
+  - Rust is an expression based language
+    - most things are evaluated and return some value
+  - Expression values coalesce to a single point 
+    - can be used for nesting logic
+
+  *** EXAMPLE 1
+  @code rust
+    let my_num =3;
+    let is_lt_5 = if my_num < 5 {
+      true
+    } else {
+      false
+    }
+    
+    // these two are the same
+    
+    let is_lt_5 = my_num < 5;
+  @end
+
+  *** EXAMPLE 2
+      ___
+    > NOTE: The values of the expressions are assigned to the variables.
+    > NOTE: Not the expressions themselves
+    @code rust
+      let my_num = 3;
+      let message = match my_num  {
+        1 => "hello",
+        _ => "goodbye",
+      }
+    @end
+
+  *** EXAMPLE 3
+      ___
+    > NOTE: things can get messy when you try to assign variables too often
+
+    > Enum
+    @code rust
+    enum Menu {
+      Burger,
+      Fries,
+      Drink,
+    }
+    @end
+
+    > Assignment
+    @code rust
+    let paid = true;
+    let item = Menu::Drink;
+    let drink_type = "water";
+    let order_placed = match item {
+      Menu::Drink => {
+        if drink_type == "water" {
+          true
+        } else {
+          false
+        }
+      }
+      _ => true,
+    };
+    @end

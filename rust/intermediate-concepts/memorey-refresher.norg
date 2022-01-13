@@ -1,0 +1,51 @@
+@document.meta
+  title: memorey-refresher
+  description: Quick refresher on how computers use memory
+  author: me
+  categories: rust
+  created: 2021-10-26
+  version: 0.1
+@end
+
+___
+* MEMOREY REFRESHER
+  
+
+General 
+- Memory is stored using binary
+  - bits: 0 or 1
+- Computer optimized for bytes
+  - 1 byte = 8 contiguous bits
+- Fully contiguous
+
+
+Addresses
+- All data in memory has an address
+  - used to locate data
+  - always the same - only data changes
+- Usually dont utilize addresses directlu
+  - variables handle most of the work
+
+
+Offsets - Indexes
+- Items can be located at an address using an offset
+- Offsets begin at 0
+- Represent the number of bytes away form the original address
+  - normally deal with indexes instead
+
+
+EXAMPLE: Address: 4, Offset: 1
+
+@table
+Column 1 | Column 2 | Column 3 | Column 4 
+-
+4 | okay? | X | 0
+8 | 1 | 2 | 3
+12 | 1 | 2 | 3
+16 | 1 | 2 | 3
+@end
+
+- Variables handle grabbing what is stored in address space
+  - dont need to fret
+  - compiler handles all this
+

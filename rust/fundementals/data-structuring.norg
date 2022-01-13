@@ -1,0 +1,182 @@
+@document.meta
+  title: data-structuring
+  description: Core concepts of the data structures in rust
+  author: me
+  categories: rust
+  created: 2021-10-26
+  version: 0.1
+@end
+
+___
+* DATA STRUCTURING
+  - Orginization of data within code
+   -- allows code to be more readable to humans
+   -- encapsulating everything makes things easier to debug
+  - Types of structures
+  -- Enums
+  -- Structs
+  -- Tuples
+  -- Vectors
+
+___
+ ** Enums
+  - Data that can be one of multiple different possiblities
+      - each possibility is called a variant
+    - Provides information about your program to the compile
+      - Allows more robust programs
+    - Match and Enum go hand in hand
+      - match must be exhaustive
+      - enums must be exhaustive
+        - but every variant needs to be actually used
+      - if and enum gains a variant
+        - match will know and complain
+        - allows for stronger less buggy code
+    - Makes programs easier to read
+      - data structuring lol
+
+  *** EXAMPLE:
+  @code rust
+  enum Direction {
+    Up,
+      Down,
+      Left,
+      Right,
+  }
+  
+  fn which_way(go: Direction) {
+    match go {
+      Direction::Up => "up",
+      Direction::Down => "down",
+      Direction::Left => "left",
+      Direction::Right => "right",
+    }
+  }
+  @end
+
+___
+ ** Struct
+  - Basically the same as type structs in Go
+  - Type that contains multiple pieces of data
+    - all or nothing cannot have some pieces of data and not others
+  - Each piece of data is called a field
+  - Makes working iwth data easier... more structured
+    - similar data can be grouped together
+    - destructuring with `struct_var.field`
+  
+  *** EXAMPLE:
+  @code rust
+  struct ShippingBox {
+      depth: i32,
+      width: i32,
+      height: i32,
+  }
+  
+  let my_box = ShippingBox {
+        depth: 3,
+        width: 2,
+        height: 5.
+  };
+  
+  let tall = my_box.height;
+  println('the box is {:?} units tall', tall)
+  @end
+
+___
+ ** Tuples
+  - A type of record
+  - Stores data 
+    - no need to name fields
+    - can mix types
+  - Useful for pairs of data
+  - Can be destructured into seperate variables
+
+  
+  *** EXAMPLE:
+      ___
+    > NOTE: Good for two or three fields; unreadable with more
+    >         Use struct for more than 2-3 fields
+
+    @code rust
+    enum Access {
+        Full,
+      }
+    
+    fn one_two_three() -> (i32, i32, i32) {
+        (1, 2, 3)
+    }
+    
+    
+    let number = one_two_three();
+    let (x, y, z) = one_two_three();
+    println!("{:?}, {:?}", x, numbers.0) // 1 
+    println!("{:?}, {:?}", y, numbers.1) // 2
+    println!("{:?}, {:?}", z, numbers.2) // 3
+    
+    let (employee, access) = ("Jake", Access::Full)
+    @end
+
+___
+ ** Vectors
+  - Multiple pieces of data
+  -- must be the same type
+  - Used for lists of information
+  - Can add, remove, and traverse the entries
+
+  *** EXAMPLE 1
+      ___
+  @code rust
+  let my_nums = vec![1,2,3];
+  // The vec![] macro will expand to this
+  let my_nums = Vec::new();
+  my_nums.push(1);
+  my_nums.push(2);
+  my_nums.push(3);
+  my_nums.pop(); // will drop last item from vec
+  my_nums.len(); // returns length of vector. will return 2       
+  
+  let two = my_nums[1]; // slice. index starts from 0
+  @end
+
+  *** EXAMPLE 2
+    ___
+  > NOTE: For..In loop is used specific
+  >         for collections
+
+  @code rust
+  let my_nums = vec![];
+  
+  for num in my_nums {
+    println!("{:?}", num)
+  }
+  @end
+
+  *** EXAMPLE 3
+    ___
+  > NOTE: Can name the Index here whatever
+  >       The Range variable must, however be
+  >         a collection.
+  >       For..In can not run outside of a 
+  >         collection
+  >       Vectors always print out in the same 
+  >         order
+
+  @code rust
+  struct Test {
+    score: i32,
+  }
+  
+  fn main() {
+    let my_scores = vec![
+      Test { score: 90 },
+      Test { score: 88 },
+      Test { score: 77 },
+      Test { score: 93 },
+    ];
+  
+    for test in my_scores {
+      println!("{:?}", test.score);
+    }
+  }
+  @end
+
+

@@ -1,0 +1,282 @@
+@document.meta
+  title: data-types
+  description: notes on the various data types
+  author: me
+  categories: rust
+  created: 2021-11-04
+  version: 0.1
+@end
+
+___
+* DATA TYPES
+
+  ___
+ ** Strings
+    - Two commonly used types of Strings
+    -- String -> owned
+    -- &str -> borrowed String slice
+    --- strings are automatically borrowed
+    - Must use an owned String to store in a struct
+    -- Use to_owned() method or String::from() function
+       to create an owned copy of a string slice
+      
+    - Use &str when passing to a function
+
+  *** EXAMPLE 1
+      ___
+    > NOTE: when you create a string as a parameter it is
+    >       automatically borrowed
+
+    @code rust
+      fn print_it(data: &str) {
+        println!("{:?}", data);
+      }
+    
+      fn main() {
+        print("a string slice");
+        // Both of these variables create an owned string
+        let owned_string = "Owned string".to_owned();
+        let another _owned = String::from("another");
+        // Must borrow data to use in a function
+        print_it(&owned_string);
+        print_it(&another_owned);
+      }
+    @end
+
+  *** EXAMPLE 2
+      ___
+    > NOTE: Fails
+
+    @code rust
+    
+      struct Employee {
+      //  name: &str,  FAILS
+    
+      // To fix use String instead of &str
+      name: String,
+      }
+    
+      fn main() {
+        // let emp_name = "Jayson" FAILS
+    
+        // to fix call one of:
+        let emp_name = "Jayson".to_owned();
+        // or
+        let emp_name = String::from("Jayson");
+    
+        let emp_name = Employee {
+          name: emp_name,
+        };
+      }
+    @end
+
+  *** EXAMPLE 3
+      ___
+    > NOTE: Structs need a owned element because:
+    >         with ownership, once the the Struct
+    >           block is finished it must destroy
+    >           its variables
+    >          
+    >         functions, structs and the like cant
+    >           do that if they don't own the 
+    >           variable
+
+    @code rust
+    struct LineItem {
+      name: String,
+      count: i32,
+    }
+    
+    fn print_name(name: &str) {
+      println!("name: {:?}", name)
+    }
+    
+    
+    fn main() {
+      let receipt = vec![
+        LineItem {
+          name: "cereal".to_owned(),
+          count: 1,
+        },
+        LineItem {
+          name: "fruit".to_owned(),
+          count: 3,
+        },
+      ];
+    
+      for item in recepit {
+        print_name(item.name);
+        println!("count : {:?}", item.count);
+      }
+    }
+    
+    
+    @end
+
+___
+ ** Type Annotations
+    - Requirdfor function signatures
+    - Types are usually inferred
+    - Can also be specified in code
+      - explicit type annotaions
+    - Function parameters must always be typed
+    - Function returns must be labeled only by type
+    - Within funcion bodies, type annotations are usually
+      optional
+    -- only when the compiler is confused do we need
+      to explicitly type most things in rust
+    - Vectors must be specified when used within a struct
+      - as does everything else within structs
+
+  *** EXAMPLE 1
+      ___
+    > NOTE: Basic
+    @code rust
+      fn print_many(msg &str, count: i32) {}
+      enum Mouse {
+        LeftClick,
+        MiddleClick,
+        RightClick,
+      }
+    
+      let num: i32 = 15;
+      let a: char = 'a';
+      let left_click: Mouse = Mouse::LeftClick
+    @end
+
+  *** EXAMPLE 1
+      ___
+    > NOTE: Generics
+    @code rust
+      let numbers: Vec<i32> = vec![1, 2, 3];
+      let letters: Vec<char> = vec!['a', 'b'];
+      let clicks: Vec<Mouse> = vec![
+        Mouse::LeftClick,
+        Mouse::RightClick,
+        Mouse::MiddleClick,    
+      ];
+    @end
+
+___
+ ** Option 
+    - A type tat may be one of two things 
+    -- some data of a specified type
+    -- nothing
+    - Used in scenarios where data may not be required or is unavailable
+    -- unable to find something
+    -- ran out of items in a list
+    -- form field not filled out
+    
+  *** EXAMPLE 1
+      ___
+    > NOTE: Syntax
+    >       The keyword inside of the angular brackets denotes the type
+    >         expected
+    >         in this case represented by 'T'
+    > 
+
+    @code rust
+      enum Option<T> {
+        Some(T),
+        None
+      }
+    @end
+
+  *** EXAMPLE 2
+      ___
+    > NOTE: Age is the optional field
+    > 
+
+    @code rust
+      struct Customer<i32> {
+        age: Option<i32>,
+        email: String,
+      }
+    
+      let mark = Customer {
+        age: Some(22), email: "mark@mark.com".to_owned(),
+      };
+    
+      let becky = Customer {
+        age: None, email: "becky@mark.com".to_owned(),
+      };
+    
+      match becky.age{
+        Some(age) => println!("Customer is {:?} years old", age),
+        None => println!("Customer not provided"),
+      };
+    @end
+
+  *** EXAMPLE 3
+      ___
+    > NOTE: Options can also be returned and initiated within the function call
+    > 
+
+    @code rust
+      struct GroceryItem {
+        name: String,
+        qty: i32,
+      }
+    
+       fn find_quantity(name: &str) -> Option<i32> {
+          let groceries= vec![
+            GroceryItem { name: "banans".to_owned(), qty: 4, },
+            GroceryItem { name: "grapes".to_owned(), qty: 14, },
+            GroceryItem { name: "cheese".to_owned(), qty: 5, },
+          ];
+    
+          for item in groceries {
+           if item.name == name {
+             return Some(item.qty)
+           }
+          };
+          None
+       
+       }
+    
+    @end
+
+___
+ ** Result
+    - A data type that contains one of two types of data
+    -- "successful" data
+    -- "error" data
+    - Used in scenarios where an action needs to be taken,
+      but has the possiblity of failure
+    -- copying a file
+    -- connecting to a website
+    Result definition:
+
+    enum Result<T, E> {
+      Ok(T), // T is a place holder for a type returned if result is successful
+      Err(E) // E is another place holder for a type returned if result is an error
+    }
+    
+  *** EXAMPLE 1
+      ___
+    > NOTE: Error handling
+    > 
+
+    @code rust
+      fn get_sound(name: &str) -> Result<SoundData, String> {
+        if name == "alert" {
+          Ok(SoundData::new("alert")),
+        } else {
+          Err("unable to find sound data".to_owned())
+        }
+      }
+      
+      let sound = get_sound("alert");
+      match sound {
+        Ok(_) => println!("Sound data located")
+        Err(err) => println!("error: {:?}", err)
+      }
+    @end
+  
+   
+   **** IMPORTANT
+        ___
+      > NOTE: review docs/rust/test-code/src/bin/result-demo.rs
+      > NOTE: review
+      > github.com/SorbetofBeef/rust-programming-for-beginners/src/bin/a18b.rs
+

@@ -1,0 +1,171 @@
+/*
+	 ************************
+	***                    ***
+	***  PROTOCAL BUFFERS  *** 
+	***                    ***
+	 ************************
+*/
+/*
+	*** GENERAL ***
+	* 
+	* Developed by Google as a means of
+	*		communicating with other services 
+	*		within your project. Proto-buffs compile messages
+	*		into code to be used in various programming
+	*		languages. Java, Go, Python, C, C++ are some 
+	*		examples of the languages that currently support
+	*		protocal buffers
+	*
+	* Proto-bufs are much smaller and can contain comments
+	*		which make the signifigantly more useful than JSON
+	*		and XML. Also, because these messages get compiled
+	*		into native code, they can be used amongst servies
+	*		written in many different languages.
+	*
+	* Below is an example message destructured, analyzeda,
+	*		and documented by yours truly
+	*
+*/
+/*
+	*** MESSAGE FORMAT *** !NOTE! each unbracketed new line line 
+	*													must end in a semi colon
+	*
+	*** // single line comment
+	*** syntax = "proto3";
+	*** message <MessageName> {
+	***   // example of a field
+	***		<field_type> <field_name> = <tag>;
+	*** }
+*/
+/*
+	*** SYNTAX ***
+	* 
+	*	- Defines which proto version the compiler
+	*			will use to compile this schema
+*/
+/*
+	*** MESSAGENAME ***
+	* 
+	* - Protobuff uses messages to communicate
+	* - Each message must be defined with a message
+	*		name
+*/
+/*
+	*** FIELDS ***
+	* 
+	*	Breakdown: 
+	*		- field type 
+	*			- scalar typeing of the field
+	*		- field name 
+	*			- name of the field
+	*		- tag 
+	*			- a number that labels the field for 
+	*				protobuf
+*/
+/*
+	*** SCALAR TYPES *** !NOTE! they work just like every
+	*												other typing system
+	* 
+	* - no such thing as a require field
+	* - all fields which are defined will recieve their
+	*		typeing's language specific empty value
+	* 
+	*	Numbers:
+	*		- default value: 0
+	*		- most "complicated"
+	*			- there's a lot of them
+	*		- double, float, int32, int64, uint32, uint64,
+	*				sint32, sint64, fixed32, fixed64, sfixed32,
+	*				sfixed64
+	* Integer:
+	*		- default value: 0
+	*		- course will be using int32 exclusively
+	*		- !NOTE! more info in the Advanced Section of the course
+	* Float:
+	*		- default value: 0
+	*		- float = float32
+	*		- double = float64 (for precision if you really need it)
+	* Bool:
+	*		- default value: false
+	*		- True, False
+	* String:
+	*		- default value: <empty_string>
+	*		- represents text
+	*		- must be:
+	*			- UTF-8 encoded
+	*			- 7-bit ASCII text
+	* Bytes:
+	*		- default value: <empty_bytes>
+	*		- for anything else
+	*		- basically a catch all
+	*			- up to your interpretation
+	* Repeated Fields:
+	*		- default value: <empty_list>
+	*		- syntax is:
+	*			- repeated <field_type>
+	*		- these represent a list or array 
+	*		- the opposite of repeated is singular
+	*			- singular is omitted
+	* Enum:
+	*		- default value: 0
+	*		- must start by the tag 0
+	*		- is used when all values a field can take are known
+	*		- FIRST VALUE OF ANY ENuM IS ALWAYS THE DEFAULT VALUE
+	*		- is used similarly to type structs in Go
+	*
+*/
+/*
+	*** TAGS ***
+	*
+	*	- the field name isnt important to protobuff
+	*		- however it is for the programming language
+	*	- protobuf cares about the tag element
+	*	- tag can be a number between:
+	*		- 1 and 2^29-1 (536,870,911)
+	*		- except numbers 19000-19999
+	*			- Google has them reserved
+	*	- 1-15 use 1 byte in space
+	*		- use these for frequently updated fields
+	*	- 16 - 2047 use 2 bytes
+	*		- use these for less frequently updated fields
+	*	- reserved tags
+	*		- !NOTE! more info in the Advanced Section of the course
+	*
+*/
+/*
+	*** EXAMPLE ***
+*/
+syntax = "proto3";
+
+/*
+	* Person is used to identify users 
+	* across our system
+*/
+
+message Person {
+	// User Input: age
+	int32 age = 1; 
+	// User Input: first and last namas
+	string first_name = 2;
+	string last_name = 3;
+	// User Upload: .jpg formatted profile picture
+	bytes small_picture = 4;
+	// Admin: stores the verification status of user
+	bool is_profile_verified = 5;
+	// User Input: height in cm
+	float height = 6;
+  // User Input: list of phone numbers which is optional
+	repeated string phone_numbers = 7;
+
+	// Defining 4 different eye colors as user options
+	enum EyeColor {
+		UKNOWN_EYE_COLOR = 0;
+		EYE_GREEN = 1;
+		EYE_BROWN = 2;
+		EYE_BLUE = 3;
+		EYE_HAZEL = 4;
+	}
+
+	// User Input: is of the enum type: EyeColor 
+	EyeColor eye_color = 8;
+}

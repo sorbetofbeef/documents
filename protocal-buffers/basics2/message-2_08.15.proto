@@ -1,0 +1,105 @@
+/*
+	 ************************
+	***                    ***
+	***  PROTOCAL BUFFERS  ***
+	***      PART II       ***
+	***                    ***
+	 ************************
+*/
+/*
+	*** MULTI-MESSSAGE FILES ***
+	*
+	* - define these similarly to enums
+	* - define second message outside first
+	*		- similar also to multi functioned files
+  *
+	* - EXAMPLE: 
+	*   message MessageOne {
+	*			<type> <name> = 1;
+	*			<type> <name> = 2;
+	*			<type> <name> = 3;
+	*
+	*			MessageTwo <name> = 4;
+	*			<type> <name> = 5;
+	*		}
+
+	*   message MessageTwo {
+	*			<type> <name> = 1;
+	*			<type> <name> = 2;
+	*			<type> <name> = 3;
+	*		}
+*/
+/*
+	*** NESTED MESSAGES ***
+	*
+	* - message within a message
+	*		- similar to a callback function
+	* - EXAMPLE:
+	*
+	*   message MessageOne {
+	*			message MessageTwo {
+	*				<type> <name> = 1;
+	*				<type> <name> = 2;
+	*				<type> <name> = 3;
+	*			}
+	*
+	*			<type> <name> = 1;
+	*			<type> <name> = 2;
+	*			<type> <name> = 3;
+	*			MessageTwo <name> = 4;
+	*			<type> <name> = 5;
+	*			<type> <name> = 6;
+	*		}
+	*
+	*
+*/
+syntax = "proto3";
+
+/*
+	* Person is used to identify users 
+	* across our system
+*/
+
+message Person {
+	// User Input: age
+	int32 age = 1; 
+	// User Input: first and last namas
+	string first_name = 2;
+	string last_name = 3;
+	// User Upload: .jpg formatted profile picture
+	bytes small_picture = 4;
+	// Admin: stores the verification status of user
+	bool is_profile_verified = 5;
+	// User Input: height in cm
+	float height = 6;
+  // User Input: list of phone numbers which is optional
+	repeated string phone_numbers = 7;
+
+	// Defining 4 different eye colors as user options
+	enum EyeColor {
+		UKNOWN_EYE_COLOR = 0;
+		EYE_GREEN = 1;
+		EYE_BROWN = 2;
+		EYE_BLUE = 3;
+		EYE_HAZEL = 4;
+	}
+
+	// User Input: is of the enum type: EyeColor 
+	EyeColor eye_color = 8;
+	// User Input: date of birth
+	Date birthday = 9;
+}
+
+message Date {
+	// Year of date. Must be from 1 to 9999, or 0 if 
+	//	 specifying a date withot a year.
+	int32 year = 1;
+	// Month of year. Must be from 1 to 12.
+	int32 month = 2;
+	/*
+	 * Day of the month. Must be from 1 to 31 and valid for 
+	 *		the given month and year. An entry of 0 denotes a
+	 *		date consistingly of only a year/month combination
+	 */ 
+	int32 day = 3;
+}

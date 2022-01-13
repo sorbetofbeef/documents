@@ -1,0 +1,56 @@
+@document.meta
+  title: repetitions
+  description: 
+  author: me
+  categories: rust
+  created: 2021-10-26
+  version: 0.1
+@end
+
+___
+* REPITION
+
+___
+ ** Loop
+  - Loops through a code block infinetly
+   - use the key word break to "break out"
+   - else..if statements can be used to 
+     break out of the loop at a specifc instance
+     
+  *** EXAMPLE 1
+      ___
+    > NOTE: Unique to rust
+
+    @code rust
+    fn main() {
+      let mut i = 3;
+      loop {
+        println!("{:?}", i);
+        i = i - 1;
+        if i == 0 {
+          break;
+        }
+      };
+      println!("Done")
+    }
+    @end
+
+___
+ ** While
+  - Loops through a code block based on a condition
+    - usually if a var is true keep looping
+    - standard while loop
+  
+  *** EXAMPLE 2
+      ___
+    > NOTE: Standard while loop
+    @code
+    fn main () {
+      let mut i - 1;
+      while i <= 3 {
+        println!("{:?}", i);
+        i = i + 1;
+      }
+    }
+    @end
+  

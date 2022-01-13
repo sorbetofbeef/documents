@@ -1,0 +1,15 @@
+@document.meta
+  title: headless-vs-trad
+  description: Differences between headless and tradional CMS
+  author: me
+  categories: JAMStack
+  created: 2021-11-09
+  version: 0.0.8
+@end
+
+___
+* HEADLESS VS TRAD CMS
+  - Decoupled
+  - Lowers the barrier of entry for non devs.
+  -- allows them to enter content
+

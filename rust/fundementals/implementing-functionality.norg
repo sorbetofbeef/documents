@@ -1,0 +1,103 @@
+@document.meta
+  title: implementing-functionality
+  description: Notes on the impl keyword
+  author: me
+  categories: rust
+  created: 2021-10-26
+  version: 0.1
+@end
+
+___
+* IMPL KEYWORD
+
+___
+ ** General
+  - IMPL: implements functionality into enums and structs 
+  -- makes programs easier to follows
+  -- allows for better encapsulation
+
+
+  *** EXAMPLE 1
+      ___
+    > NOTE: Plain call not using impl
+
+    @code rust
+    struct Temp {
+      degrees_f: f64,
+    }  
+    
+    fn show_temp(temp: Temp) {
+      println!("{:?} degrees F", temp.degrees_f);
+    }
+    
+    fn main() {
+      let hot = Temp {
+        degrees_f: 99.9,
+      };
+      show_temp(hot);
+    }
+    @end
+
+___
+ ** Basic impl
+  - Same script but with impl
+  -- impl allows us to call the function within the Temp struct
+  -- notice when we call the function we have to use Temp:: 
+  --- next examples shows a better way
+
+  *** EXAMPLE 2
+      ___
+    > NOTE: With using impl
+
+  @code rust
+  struct Temp {
+    degrees_f: f64,
+  }  
+  
+  impl Temp {
+    fn show_temp(temp: Temp) {
+      println!("{:?} degrees F", temp.degrees_f);
+    }
+  }
+  
+  fn main() {
+    let hot = Temp {
+      degrees_f: 99.9,
+    };
+    Temp::show_temp(hot);
+  }
+  @end
+
+
+  *** EXAMPLE 3
+      ___
+    > NOTE: A reference to self basically:
+    >         is a callback the current struct
+    >         allows for developer to ommit calling the struct and then the function
+    >       Calls function directly on the variable
+    >         similar to a method
+
+  @code rust
+  struct Temp {
+    degrees_f: f64,
+  }  
+  
+  impl Temp {
+    fn show_temp(&self) {
+      println!("{:?} degrees F", self.degrees_f);
+    }
+  
+    fn freezing() -> Self {
+    }    
+  }
+  
+  fn main() {
+    let hot = Temp {
+      degrees_f: 99.9,
+    };
+    hot.show_temp();
+  }
+  @end
+
+ 
+

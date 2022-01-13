@@ -1,0 +1,13 @@
+@document.meta
+  title: index
+  description: 
+  author: me
+  categories: 
+  created: 2021-10-27
+  version: 0.1
+@end
+
+= TOC
+
+* Index File for Neorg
+

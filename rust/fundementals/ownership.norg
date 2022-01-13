@@ -1,0 +1,129 @@
+@document.meta
+  title: ownership
+  description: goes over ownership and borrowing
+  author: me
+  categories: rust
+  created: 2021-10-26
+  version: 0.1
+@end
+
+___
+* OWNERSHIP
+
+___
+ ** Managing Memorey in Rust
+   - All programs must track memory
+     - if they fail to do so a leak occurs
+   - Rust utilizes an ownership model to manage memory
+     - the owner of memory is responsible for cleaning up the memory
+   - Memory can either be moved or borrowed
+  
+  *** EXAMPLE 1
+      ___
+    > NOTE: Due to the Ownership System there
+    >         is an error in the code below
+    >       Var light's memorey address and 
+    >         offset is owned by the main()
+    >       Display_light() gets called with "dull" as the parameter 
+    >         ownership is then moved to display_light()
+    >         ownership dictates that when the function completes all vars owned by said function must also be deleted by that function
+    >         therefore the second call to display_light() will not fire off correctly because the variable dull is no longer available.
+    
+    @code rust
+    enum Light {
+      Bright,
+      Dull,
+    }
+    
+    fn display_light(light: Light) {
+      match light {
+        Light::Bright => println!("bright!"),
+        Light::Dull => println!("dull!"),
+      };
+    }
+    
+    fn main() {
+      let dull = Light::Dull;
+      display_light(dull);
+      display_light(dull);
+    }
+    @end
+
+  *** EXAMPLE 2
+      ___
+    > NOTE: To handle we allow for functions to borrow vars from one another
+    >         use ampersand & to denote a borrow/reference
+    >         basically a pointer but better
+    >       The borrowing function can not delete the variable
+    
+    @code rust
+    enum Light {
+      Bright,
+      Dull,
+    }
+    
+    fn display_light(light: &Light) {
+      match light {
+        Light::Bright => println!("bright!"),
+        Light::Dull => println!("dull!"),
+      };
+    }
+    
+    fn main() {
+      let dull = Light::Dull;
+      display_light(&dull);
+      display_light(&dull);
+    }
+    @end
+
+___
+ ** Wrap Up
+  - Seems to be an important aspect of rust
+  - Memory must be managed
+    - rust uses ownership
+    - owner of data must clean up
+    - automagically occurs at end of scope
+  - Defaults to moving data rather than borrowing it
+    - use an ampersand & to denote a borrow/reference
+  
+  *** EXAMPLE 4
+      ___
+    > Tying it together 
+
+    @code rust
+    struct Book {
+        pages: i32,
+        rating: i32.
+      }
+    
+    fn display_page_count(book: Book) {
+        println!("pages = {:?}", book.pages);
+      }
+    
+    fn display_rating(book: Book) {
+        println!("pages = {:?}", book.rating);
+      }
+    
+    fn main() {
+        let book = Book {
+            pages: 5.
+            rating: 9,
+          };
+        display_page_count(book)/* ________ ownership of book gets transfered to
+                                         display_page_count() and will be dropped
+                                         at the end of its block */
+        display_rating(book)/*____________ will not run because book was dropped in the previous
+                                         line */
+      }
+      // _______ book variable gets dropped here from main
+    @end
+  
+  *** The Fix
+      ___
+    > See ownership
+
+  - To fix this one must add a ampersand & to the Book type of the parameter book in the
+    display functions
+    - (book: &Book) in the definition
+    - (&book) in the function call
+        

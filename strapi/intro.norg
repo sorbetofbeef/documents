@@ -1,0 +1,18 @@
+@document.meta
+  title: intro
+  description: 
+  author: me
+  categories: 
+  created: 2021-11-09
+  version: 0.0.8
+@end
+
+___
+* INTRO
+  - Strapi is a wrapper around the various database tools
+  - Allows for fine grain control as well
+  -- Probably by not using the Strapi interface
+  - All JavaScript
+  - OpenSource/Free
+
+

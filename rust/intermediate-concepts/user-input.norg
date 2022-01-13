@@ -1,0 +1,15 @@
+@document.meta
+  title: user-input
+  description: Notes on how to use userinput with io
+  author: me
+  categories: rust
+  created: 2021-11-09
+  version: 0.0.8
+@end
+use std::io;
+
+// dont need to use 
+fn get_input() -> io::Result<String> {
+
+}
+

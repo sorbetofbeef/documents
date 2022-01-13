@@ -1,0 +1,232 @@
+@document.meta
+  title: data-structuring
+  description: Intermediate level understanding of structured data
+  author: me
+  categories: rust
+  created: 2021-11-07
+  version: 0.1
+@end
+
+___
+* DATA STRUCTURING - INTERMEDIATE CONCETPS
+
+___
+ ** Derive
+    - Derive is a macro
+    - Acts on Enums and Structs
+    - Enums with in Structs that implement derive,
+      must also implement derive
+    
+  *** EXAMPLE
+      ___
+    >  NOTE: Shows usage of derive
+
+    @code rust
+      #[derive(Debug)]
+      enum Position {
+        Manager,
+        Supervisor,
+        Worker,
+      }    
+    
+      #[derive(Debug)]
+      struct Employee {
+        posistion: Posistion,
+        work_hours: i64,
+      }
+    
+      fn main() {
+        let me = Employee {
+          posistion: Position::Worker,
+          work_hours: 40,
+        };
+        println!("{:?}", me.position);
+      }
+    @end
+
+___
+ ** Clone, Copy
+    - Tells compiler to automatically copy variables
+      into a struct or function
+    - Ownership is not longer moved, a copy would be
+      created instead
+    - Same caveats about enums nested within structs
+    - limit struct size to 4-5 using copy and clone
+
+    @code rust
+      #[derive(Copy)]
+    @end
+
+___
+ ** Enums expanded
+    - "enum" is a type that can represent one item 
+      at a time
+    -- each item is called a varient
+    - "enum" is not limited to just plain variatns
+    -- each variant can potentially contain 
+       additional data
+
+  *** EXAMPLE 1
+      ___
+    > NOTE: Can denote this additional data with
+    >         round brackets and then a type annotation
+    >       Here scroll could be a positive or negative
+    >         number defining the "scroll step"
+    >       Move could be displaying cords for a mouse's
+              x,y axis
+    > 
+    
+    @code rust
+      enum Mouse {
+        LeftClick,
+        RightClick,
+        MiddleClick,
+        Scroll(i32),
+        Move(i32, i32),
+      }
+    @end
+
+  *** EXAMPLE 2
+      ___
+    > NOTE: Enums and there additional data can be nested
+    >         if additional data is added to an enum, it 
+    >         must also be used, it can not be left empty
+    > 
+
+    @code rust
+      enum PromoDiscount {
+        NewUeser,
+        Holiday(String),
+      }
+    
+      enum Discount {
+        Percent(f64),
+        Flat(i32),
+        Promo(PromoDiscount),
+        Custom(String),
+      }
+    @end
+
+___
+ ** Match expanded
+    - Underscores should be used to ignore data
+    - A catch all for data we want to use should
+      be initiated inside of the match block itself
+    -- the arm name for would then become the 
+       variable name within that match arm
+
+  *** EXAMPLE 1
+      ___
+    > NOTE: Matching with enum
+    > 
+
+    @code rust
+      enum Discount {
+        Percent(i32),
+        Flat(i32),
+      }
+    
+      struct Ticket {
+        event: String,
+        price: i32,
+      }
+      
+      fn main() {
+        let n = 3;
+        match n {
+          3 => println!("stuff")
+          other => println!("Numer: {:?}", other)
+        }    
+      
+        let flat = Discount::Flat(2)
+        match flat {
+          Discount::Flat(2) => println!("flat discount of {:?}", amount),
+          Discount::Flat(amount) => println!("flat discount of {:?}", amount),
+          _ => ()
+        }    
+      }
+      
+    @end
+
+  *** EXAMPLE 3
+      ___
+    > NOTE: Matching Structs
+    > 
+
+    @code rust
+      enum Discount {
+        Percent(i32),
+        Flat(i32),
+      }
+    
+      struct Ticket {
+        event: String,
+        price: i32,
+      }
+      
+      fn main() {
+        let n = 3;
+        match n {
+          3 => println!("stuff")
+          other => println!("Numer: {:?}", other)
+        }    
+      
+        let flat = Discount::Flat(2)
+        match flat {
+          Discount::Flat(2) => println!("flat discount of 2"),
+          Discount::Flat(amount) => println!("flat discount of {:?}", amount),
+          _ => ()
+        }
+    
+        let concert = Ticket {
+          event: "concert".to_owned(),
+          price: 5000
+        };
+        match concert {
+          Ticket { price: 5000, event } => println!("event @ 50 = {:?}", event),
+          Ticker { price, .. } => println!("price = {:?}, price),
+        }
+      }
+    @end
+
+___
+ ** Hash Maps
+    - Collection that stores data as key-value pairs
+    -- data is located using the key
+    -- the data is the value
+    - Similar to definitions in a dictionary
+    -- and dicts in other languages
+    - Very fast to retrieve data using the key
+
+  *** EXAMPLE
+      ___
+    > NOTE: Must use mutable variable
+    > 
+
+    @code rust
+    let mut people = HashMap::new();
+    people.insert("Susan", 21);
+    people.insert("Ed", 13);
+    people.insert("Will", 14);
+    people.insert("Cathy", 22);
+    people.remove("Susan");
+    
+    match people.get("Ed") {
+      Some(age) => println!("age = {:?}", age),
+      None => println!("not found"),
+    }
+    
+    for (person, age) in people.iter() {
+      println!("person = {:?}, age = {:?}", person, age)
+    }
+    
+    for person in people.keys() {
+      println!("person = {:?}", person)
+    }
+    
+    for age in people.values() {
+      println!(" age = {:?}", age)
+    }
+    
+    @end
+

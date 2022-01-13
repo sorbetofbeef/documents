@@ -1,0 +1,16 @@
+@document.meta
+  title: introduction
+  description: Introductory point for the go programming language
+  author: Christian Dickerson
+  categories: Development
+  created: 2021-10-26
+  version: 0.1
+@end
+
+Introduction
+------------
+
+General
+- Created by google
+  - with the help of the dudes who made the B and C language
+

@@ -1,0 +1,24 @@
+@document.meta
+  title: documentation
+  description: Notes on how to generate documentation in rust 
+  author: me
+  categories: rust
+  created: 2021-11-09
+  version: 0.0.8
+@end
+
+___
+* GENERATING DOCS
+
+  ___
+ ** Docs
+    - Three forward slashes in code denotes where docs start
+    -- syntax: /// Documentation comment block
+    -- cargo doc [--open] cli program that generates docs
+
+___
+ ** Stanard Library Documentaion API
+    - rustup doc is a cli program that loads the docs in a browser window
+    -- brings you to a pages and click extensive docs
+    -- split up into modules by keywords
+
