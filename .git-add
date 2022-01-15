@@ -6,6 +6,5 @@ protocal-buffers
 rust
 solidity
 strapi
-.gitignore
 .git-add
-
+.gitignore
