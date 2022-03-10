@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn main() {
     let mut people = HashMap::new();
     people.insert("Susan", 21);

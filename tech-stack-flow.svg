@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920.0px"
+   height="1080.0px"
+   viewBox="0 0 1920.0 1080.0"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="tech-stack-flow.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview884"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="0.51669473"
+     inkscape:cx="900.91882"
+     inkscape:cy="560.29215"
+     inkscape:window-width="1892"
+     inkscape:window-height="1019"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g34021" />
+  <defs
+     id="defs879">
+    <rect
+       x="859.00577"
+       y="820.7518"
+       width="140.91977"
+       height="92.701619"
+       id="rect52733" />
+    <rect
+       x="1541.3175"
+       y="885.01998"
+       width="181.4342"
+       height="90.902321"
+       id="rect28241" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+       x="782.37689"
+       y="429.68433"
+       id="text7949"><tspan
+         sodipodi:role="line"
+         id="tspan7947"
+         x="782.37689"
+         y="429.68433" /></text>
+    <g
+       id="g34010">
+      <ellipse
+         style="fill:#505fa6;fill-opacity:1;stroke:#000000;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:6;stroke-opacity:1;paint-order:markers stroke fill"
+         id="path1013"
+         cx="971.75293"
+         cy="88.052177"
+         rx="153.15575"
+         ry="79.887291" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="922.45746"
+         y="79.909973"
+         id="text12177"><tspan
+           sodipodi:role="line"
+           id="tspan12175"
+           x="922.45746"
+           y="79.909973">User</tspan></text>
+    </g>
+    <g
+       id="g34021"
+       transform="translate(28.478796,-55.392657)">
+      <rect
+         style="fill:#b68765;fill-opacity:1;stroke:#000000;stroke-width:11.692;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:6;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1037"
+         width="966.36847"
+         height="251.16289"
+         x="466.4744"
+         y="303.29776" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="580.71948"
+         y="384.16513"
+         id="text20723"><tspan
+           sodipodi:role="line"
+           id="tspan20721"
+           x="580.71948"
+           y="384.16513">Front End</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="625.21802"
+         y="484.61584"
+         id="text38733"><tspan
+           sodipodi:role="line"
+           id="tspan38731"
+           x="625.21802"
+           y="484.61584">React and Typescript</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="1086.3977"
+         y="389.0036"
+         id="text41509"><tspan
+           sodipodi:role="line"
+           id="tspan41507"
+           x="1086.3977"
+           y="389.0036">Truffle </tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="862.63458"
+         y="374.81332"
+         id="text43955"><tspan
+           sodipodi:role="line"
+           id="tspan43953"
+           x="862.63458"
+           y="374.81332">Jest</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="900.40472"
+         y="813.49408"
+         id="text48963"><tspan
+           sodipodi:role="line"
+           id="tspan48961"
+           x="900.40472"
+           y="813.49408" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="900.40472"
+         y="821.08441"
+         id="text50419"><tspan
+           sodipodi:role="line"
+           id="tspan50417"
+           x="900.40472"
+           y="821.08441">Solidi</tspan></text>
+      <text
+         xml:space="preserve"
+         transform="translate(-28.478796,55.392657)"
+         id="text52731"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect52733);fill:#000000;fill-opacity:1;stroke:none"><tspan
+           x="859.00586"
+           y="856.14258"
+           id="tspan60339">Sol</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="1615.2173"
+         y="840.30212"
+         id="text59499"><tspan
+           sodipodi:role="line"
+           id="tspan59497"
+           x="1615.2173"
+           y="840.30212">go</tspan></text>
+    </g>
+    <g
+       id="g34016"
+       transform="translate(515.51384,-169.40612)">
+      <g
+         id="g3085-4"
+         transform="translate(-11.653863,350.23931)">
+        <rect
+           style="fill:#b68765;fill-opacity:1;stroke:#000000;stroke-width:6.66667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:6;stroke-opacity:1;paint-order:markers stroke fill"
+           id="rect1037-3"
+           width="305.1926"
+           height="258.56207"
+           x="307.09775"
+           y="440.41962" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="358.54404"
+         y="892.70105"
+         id="text22575"><tspan
+           sodipodi:role="line"
+           id="tspan22573"
+           x="358.54404"
+           y="892.70105">EVM</tspan></text>
+    </g>
+    <g
+       id="g34005"
+       transform="translate(320.67563,-125.51234)">
+      <g
+         id="g3085"
+         transform="translate(901.30815,306.32284)">
+        <rect
+           style="fill:#b68765;fill-opacity:1;stroke:#000000;stroke-width:6.66667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:6;stroke-opacity:1;paint-order:markers stroke fill"
+           id="rect1037-9"
+           width="305.1926"
+           height="258.56207"
+           x="307.09775"
+           y="440.41962" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="1237.3647"
+         y="826.62598"
+         id="text24889"><tspan
+           sodipodi:role="line"
+           id="tspan24887"
+           x="1237.3647"
+           y="826.62598">Backend</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       id="text28239"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect28241);fill:#000000;fill-opacity:1;stroke:none" />
+  </g>
+</svg>
